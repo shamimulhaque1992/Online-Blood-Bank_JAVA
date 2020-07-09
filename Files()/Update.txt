@@ -1,0 +1,27 @@
+try{
+          String sql = "UPDATE  registration  SET  `First Name` = ?,`Last Name` =?,`User Name` =?,`Contact No` = ?,`E-mail Address` =?, `Gender` = ?,`Blood Group` =?,`Address` =? ,`Password` =? WHERE `ID` =?  ";
+          con = DriverManager.getConnection("jdbc:mysql://localhost/bloodbankdb","root","");
+          pst = con.prepareStatement(sql);
+          
+          
+          pst.setString(1,jttxtfname.getText());
+          pst.setString(2,jttxtlname.getText());
+          pst.setString(3,jttxtcno.getText());
+          pst.setString(4,jttxtcno.getText());
+          pst.setString(5,jttxteadd.getText());
+          pst.setString(6,jttxtgnd.getSelectedItem().toString());
+          pst.setString(7,jttxtbgup.getSelectedItem().toString());
+          pst.setString(8,jttxtadd.getText());
+          pst.setString(9,jttxtpass.getText());
+          pst.setString(10,jttxtid.getText());
+          
+         pst.executeUpdate();
+          JOptionPane.showMessageDialog(null, "Update Successful!!!");
+          
+          
+          
+        }
+         catch(SQLException |HeadlessException ex){
+         JOptionPane.showMessageDialog(null, ex);   
+        }
+         showTableData();

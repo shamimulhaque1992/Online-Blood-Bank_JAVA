@@ -1,0 +1,12 @@
+
+         try{
+            con = DriverManager.getConnection("jdbc:mysql://localhost/bloodbankdb","root","");  
+         String sql = "SELECT * FROM registration";
+         pst = con.prepareStatement(sql);
+         
+         ResultSet rs = pst.executeQuery();
+         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+         catch(Exception ex){
+           JOptionPane.showMessageDialog(null, ex);  
+         }

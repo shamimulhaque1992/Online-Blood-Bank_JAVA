@@ -1,0 +1,21 @@
+try{
+          String query = "INSERT INTO `registration`( `First Name`, `Last Name`, `User Name`, `Contact No`, `E-mail Address`, `Gender`, `Blood Group`, `Address`, `Password`) VALUES (?,?,?,?,?,?,?,?,?)";
+          con = DriverManager.getConnection("jdbc:mysql://localhost/bloodbankdb","root","");
+          pst = con.prepareStatement(query);
+          pst.setString(1,txtfname.getText());
+          pst.setString(2,txtlname.getText());
+          pst.setString(3,txtuname.getText());
+          pst.setString(4,txtcontactno.getText());
+          pst.setString(5,txtemail.getText());
+          pst.setString(6,txtgndr.getSelectedItem().toString());
+          pst.setString(7,txtbg.getSelectedItem().toString());
+          pst.setString(8,txtadd.getText());
+          pst.setString(9,txtpass.getText());
+          pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registration Complete");
+          
+          
+          
+        }catch(Exception ex){
+         JOptionPane.showMessageDialog(null, ex);   
+        }

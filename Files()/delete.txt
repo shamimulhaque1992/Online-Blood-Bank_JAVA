@@ -1,0 +1,14 @@
+try{
+          String sql = "DELETE  FROM registration WHERE id = ?";
+          con = DriverManager.getConnection("jdbc:mysql://localhost/bloodbankdb","root","");
+          pst = con.prepareStatement(sql);
+          pst.setString(1,txtid.getText());
+          
+          pst.executeUpdate();
+          JOptionPane.showMessageDialog(null, "Deletation Complete!");
+          
+          
+        }catch(SQLException  |HeadlessException   ex){
+         JOptionPane.showMessageDialog(null, ex);   
+        }
+        showTableData();
